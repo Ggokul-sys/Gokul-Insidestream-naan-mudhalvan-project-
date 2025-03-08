@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zoroweb</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: black; color: white; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: rgba(0, 0, 0, 0.7); position: fixed; width: 100%; z-index: 1000; }
+        .logo { color: red; font-size: 2rem; font-weight: bold; }
+        .signin-btn { background-color: red; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; }
+        .hero { position: relative; height: 400px; background: center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; transition: background 0.5s ease-in-out; }
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid red;
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-pic:hover {
+            transform: scale(1.1);
+        }
+       
+        .hero-content { background: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 10px; }
+        .hero-content h2 { font-size: 3rem; margin-bottom: 10px; }
+        .hero-buttons button { padding: 10px 20px; margin: 10px; border: none; cursor: pointer; border-radius: 5px; font-size: 1rem; }
+        .play-btn { background-color: white; color: black; }
+        .info-btn { background-color: gray; color: white; }
+        .movie-section { padding: 20px; }
+        .movie-section h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .movie-container { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 10px; }
+        .movie-container::-webkit-scrollbar { display: none; }
+        .movie { position: relative; cursor: pointer; }
+        .movie img { width: 200px; height: 300px; border-radius: 5px; transition: transform 0.3s; }
+        .movie:hover img { transform: scale(1.1); }
+        .movie-info { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); color: white; padding: 5px; font-size: 14px; text-align: center; display: none; }
+        .movie:hover .movie-info { display: block; }
+        footer { text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.7); }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="dashboard.html" class="profile-link">
+            <img src="images1/pro.jpg" alt="Profile Picture" class="profile-pic">    
+        </a>
+        <h1 class="logo">zoroweb</h1>
+       <a href="signin.html"><button class="signin-btn">Signout</button></a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero" style="background-image: url('images1/a1.jpg');">
+        <div class="hero-content">
+            <h2 id="hero-title">Thrilling Action</h2>
+            <p id="hero-desc">An exciting action-packed adventure awaits you.</p>
+            <div class="hero-buttons">
+                <button class="play-btn">▶ Play</button>
+                <button class="info-btn">ℹ More Info</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Movie Lists -->
+    <section class="movie-section">
+        <h3>Up Coming Movies</h3>
+        <div class="movie-container">
+            <div class="movie" onclick="updateHero('images1/a1.jpg', 'Thrilling Action', 'An exciting action-packed adventure awaits you.')">
+                <img src="images1/a1.jpg" alt="Movie 1">
+                <div class="movie-info">   <a href="https://youtu.be/6xqNk5Sf5jo?si=lRyY3gkPK6b_UGt9">COLLIE</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a2.jpg', 'Sci-Fi Adventure', 'Explore the unknown galaxy.')">
+                <img src="images1/a2.jpg" alt="Movie 2">
+                <div class="movie-info"> <a href="https://youtu.be/BL1ecHnJqfY?si=e7hYdR2MEoNT5fOc">GOOD BAD UGLY</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a10.jpg', 'Gangstar/Action', 'A high-octane action thriller.')">
+                <img src="images1/a10.jpg" alt="Movie 10">
+                <div class="movie-info"><a href="https://youtu.be/IkjZ7szi-mQ?si=xL9rAy16mMYCahYZ">RETRO</a></div>
+           </div>
+           <div class="movie" onclick="updateHero('images1/a11.jpg', 'Action/Drama', 'Fast cars and thrilling action.')">
+                <img src="images1/a11.jpg" alt="Movie 11">
+                <div class="movie-info"><a href="https://youtu.be/ZS2Y25OOCok?si=vTZGnhCeMN9vVwvU">THUG LIFE</a></div>
+           </div>
+           <div class="movie" onclick="updateHero('images1/a4.jpg', 'action/drama', 'Fast cars and thrilling action.')">
+            <img src="images1/a4.jpg" alt="Movie 11">
+            <div class="movie-info"><a href="https://youtu.be/qQRbh17uZVg?si=fzWSYFcswnYyBdiJ">JANA NAYAGAN</a></div>
+           </div>
+        </div>
+    </section>
+
+    <section class="movie-section">
+        <h3>Top Rated</h3>
+        <div class="movie-container">
+            <div class="movie" onclick="updateHero('images1/a6.jpg', 'Action Movie', 'An award-winning masterpiece.')">
+                <img src="images1/a6.jpg" alt="Movie 6">
+                <div class="movie-info"><a href="https://youtu.be/OKBMCL-frPU?si=qGvpFOxbPD8lorsp">VIKRAM</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a7.jpg', 'Action/Thrilling', 'A movie loved by critics worldwide.')">
+                <img src="images1/a7.jpg" alt="Movie 7">
+                <div class="movie-info"><a href="https://youtu.be/z37hCm4eges?si=HfDv4T46KvGuzl5B">MAHARAJA</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a12.jpg', 'Romantic/Comedy', 'A love story that transcends time.')">
+                <img src="images1/a12.jpg" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/qIBZlbJ7NUE?si=lSI5GtrQvhyETAj5">DRAGON</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a16.jpg', 'Action', 'A love story that transcends time.')">
+                <img src="images1/a16.jpg" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/HtmlDoXttNg?si=66f9xroeYc57YHpS">PUSHPA 2</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a19.jpg', 'Action', 'love story that transcends time.')">
+                <img src="images1/a19.webp" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/oP88LHBukW8?si=VrKUrxr4g_-UTjwN">LUBBER PANDHU</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a15.jpg', 'Thrilling Action', 'An exciting action-packed adventure awaits you.')">
+                <img src="images1/a15.jpg" alt="Movie 1">
+                <div class="movie-info"><a href="https://youtu.be/q5GG5HJ1hVk?si=rv9RDUVkwjI8XXKy">VADA CHENNAI</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a21.jpg', 'Thrilling Action', 'An exciting action-packed adventure awaits you.')">
+                <img src="images1/a21.jpg" alt="Movie 1">
+                <div class="movie-info"><a href="https://youtu.be/FwIScvUQwIk?si=dvQ1Sj3pMx6l-k2z">KOTTUKKAATI</a></div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <section class="movie-section">
+        <h3>Action Movies</h3>
+        <div class="movie-container">
+            <div class="movie" onclick="updateHero('images1/a3.jpg', 'Thriller', 'A high-stakes thriller that keeps you on edge.')">
+                <img src="images1/a3.jpg" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/hsoGpoDxyKg?si=HlX-AEq8bgBRzHtw">VIDAMUYARCHI</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a8.jpg', 'Action', 'A love story that transcends time.')">
+                <img src="images1/a8.jpg" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/0E1kVRRi6lk?si=5Au5ROJ0W2VhWtD0">BEAST</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a13.jpg', 'Action', 'A love story that transcends time.')">
+                <img src="images1/a13.jpg" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/Po3jStA673E?si=GVt6FYZaWm-GZkre">LEO</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a17.jpg', 'Action', 'Action that transcends time.')">
+                <img src="images1/a17.webp" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/jxCRlebiebw?si=amQ7vdZpyBzVPyoH">GREATEST OF ALL TIME</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a18.jpg', 'Action', 'Action that transcends time.')">
+                <img src="images1/a18.jpg" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/YkFaDqi2ueM?si=Os9uiflXlIhkh7Jy">AMARAN</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a20.jpg', 'Action', 'Action that transcends time.')">
+                <img src="images1/a20.webp" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/3bvBUT5pQYY?si=sqjeMInZUip2U-uC">INDIAN 2</a></div>
+            </div>
+            <div class="movie" onclick="updateHero('images1/a14.jpg', 'Action', 'Action that transcends time.')">
+                <img src="images1/a14.jpg" alt="Movie 3">
+                <div class="movie-info"><a href="https://youtu.be/EcNACt-LOi0?si=r4EQTnAsTAQ-_E8Q">MAVEERAN</a></div>
+            </div>
+
+        
+
+        
+        
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 zoroweb. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function updateHero(image, title, description) {
+            document.getElementById('hero').style.backgroundImage = `url(${image})`;
+            document.getElementById('hero-title').innerText = title;
+            document.getElementById('hero-desc').innerText = description;
+        }
+        function playVideo(videoUrl) {
+                function playVideo(videoUrl) {
+            document.getElementById('video-container').innerHTML = `
+                <iframe width="100%" height="100%" src="${videoUrl}" 
+                    frameborder="0" allowfullscreen></iframe>
+            `;
+        }
+    }
+    </script>
+
+</body>
+</html>
